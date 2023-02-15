@@ -1,0 +1,19 @@
+{
+  "name": "@hexlet/codecle",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/S1iBa/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/S1iBa/frontend-project-44/actions)",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/S1iBa/frontend-project-44.git"
+  },
+  "author": "Daria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/S1iBa/frontend-project-44/issues"
+  },
+  "homepage": "https://github.com/S1iBa/frontend-project-44#readme"
+}
