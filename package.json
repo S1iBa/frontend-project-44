@@ -1,10 +1,14 @@
 {
   "name": "@hexlet/codecle",
   "version": "1.0.0",
+  "type": "module",
   "description": "[![Actions Status](https://github.com/S1iBa/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/S1iBa/frontend-project-44/actions)",
   "main": "index.js",
   "scripts": {
     "test": "test"
+  },
+  "bin": {
+    "brain-games": "bin/brain-games.js"
   },
   "repository": {
     "type": "git",
