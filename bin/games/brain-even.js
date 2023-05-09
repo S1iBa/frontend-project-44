@@ -20,16 +20,14 @@ const readUserInput = (choosing) => {
 const getQuestionParams = (getRandomInt) => {
   let firstNumber = getRandomInt(1, 50);
   let rightAnswer = "";
-  let question = "";
   if (numberIsEven(firstNumber)) {
     rightAnswer = "Yes";
-    // notification = "Correct!";
   } else if (!numberIsEven(firstNumber)) {
     rightAnswer = "No";
   }
 
   console.log('Answer "Yes" if the number is even, otherwise answer "No"');
-  return [`Question:${firstNumber}`, rightAnswer];
+  return [`Question: ${firstNumber}`, rightAnswer];
 };
 
 const verify = (readUserInput, rightAnswer) => {
