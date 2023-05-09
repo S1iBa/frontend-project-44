@@ -28,7 +28,7 @@ const getQuestionParams = (getRandomInt) => {
   }
 
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  return [`Question:${firstNumber}`, rightAnswer];
+  return [`Question: ${firstNumber}`, rightAnswer];
 };
 
 const verify = (readUserInput, rightAnswer) => {

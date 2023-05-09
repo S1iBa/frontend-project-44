@@ -12,8 +12,8 @@ const numberIsEven = (firstNumber) => {
   return false;
 };
 
-const choosing = ["Yes", "No"];
-const readUserInput = (choosing) => {
+const readUserInput = () => {
+  const choosing = ["yes", "no"];
   return readlineSync.question("Your answer: ", choosing);
 };
 
@@ -21,12 +21,12 @@ const getQuestionParams = (getRandomInt) => {
   let firstNumber = getRandomInt(1, 50);
   let rightAnswer = "";
   if (numberIsEven(firstNumber)) {
-    rightAnswer = "Yes";
+    rightAnswer = "yes";
   } else if (!numberIsEven(firstNumber)) {
-    rightAnswer = "No";
+    rightAnswer = "no";
   }
 
-  console.log('Answer "Yes" if the number is even, otherwise answer "No"');
+  console.log('Answer "yes" if the number is even, otherwise answer "no"');
   return [`Question: ${firstNumber}`, rightAnswer];
 };
 
@@ -34,9 +34,9 @@ const verify = (readUserInput, rightAnswer) => {
   if (readUserInput == rightAnswer) {
     return [true, "Correct!"];
   } else {
-    if (readUserInput == "Yes" && rightAnswer == "No") {
+    if (readUserInput == "yes" && rightAnswer == "no") {
       return [false, "'yes' is wrong answer ;(. Correct answer was 'no'."];
-    } else if (readUserInput == "No" && rightAnswer == "Yes") {
+    } else if (readUserInput == "no" && rightAnswer == "yes") {
       return [false, "'no' is wrong answer ;(. Correct answer was 'yes'.!"];
     } else {
       return [false, ""];
