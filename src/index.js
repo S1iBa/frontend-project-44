@@ -26,11 +26,13 @@ export const startGame = (
     const [questionText, rightAnswer] = getQuestionParams(getRandomInt);
     console.log(questionText);
     const userAnswer = readUserInput();
-    let wrongAnswer = `Let's try again, ${name}!`;
+    let endOfGame = `Let's try again, ${name}!`;
     const [isCorrect, message] = verify(userAnswer, rightAnswer);
-    console.log(message);
+    if (message != "") {
+      console.log(message);
+    }
     if (!isCorrect) {
-      console.log(wrongAnswer);
+      console.log(endOfGame);
       break;
     }
     quest++;

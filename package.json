@@ -8,9 +8,12 @@
     "test": "test"
   },
   "bin": {
-    "brain-games": "bin/brain-games.js",
-    "brain-even": "bin/brain-even.js",
-    "brain-calc": "bin/brain-calc.js"
+    "brain-games": "bin/games/brain-games.js",
+    "brain-even": "bin//games/brain-even.js",
+    "brain-calc": "bin//games/brain-calc.js",
+    "brain-gcd": "bin/games/brain.gcd.js",
+    "brain-progression": "bin/games/brain-progression.js",
+    "brain-prime": "bin/games/brain-prime.js"
   },
   "repository": {
     "type": "git",
