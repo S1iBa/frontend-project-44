@@ -35,7 +35,7 @@ const isNumber = (value) => {
 
 const verify = (readUserInput, rightAnswer) => {
   const wrongAnswer = `'${readUserInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
-  if (isNumber(readUserInput) == true) {
+  if (isNumber(readUserInput)) {
     if (readUserInput == rightAnswer) {
       return [true, "Correct!"];
     } else {
