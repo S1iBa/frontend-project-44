@@ -2,6 +2,7 @@ import readlineSync from "readline-sync";
 import { startGame } from "../../src/index.js";
 import { getRandomInt } from "../../src/index.js";
 import { promptUserName } from "../../src/index.js";
+import _ from "lodash";
 
 const readUserInput = () => {
   return readlineSync.question("Your answer: ");
@@ -29,10 +30,13 @@ const getQuestionParams = (getRandomInt) => {
   ];
 };
 
+const isNumber = (value) => {
+  return !Number.isNaN(+value);
+};
+
 const verify = (readUserInput, rightAnswer) => {
   const wrongAnswer = `'${readUserInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
-  let typeUserInput = typeof readUserInput;
-  if (typeUserInput == "number") {
+  if (isNumber(readUserInput)) {
     if (readUserInput == rightAnswer) {
       return [true, "Correct!"];
     } else {
