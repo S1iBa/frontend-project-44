@@ -29,13 +29,13 @@ const getQuestionParams = (getRandomInt) => {
   ];
 };
 
-const isNumber = (value) => {
+const answerIsNumber = (value) => {
   return !!Number(value);
 };
 
 const verify = (readUserInput, rightAnswer) => {
   const wrongAnswer = `'${readUserInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
-  if (isNumber(readUserInput)) {
+  if (answerIsNumber(readUserInput)) {
     if (readUserInput == rightAnswer) {
       return [true, "Correct!"];
     } else {
