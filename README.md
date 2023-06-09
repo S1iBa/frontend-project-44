@@ -21,19 +21,3 @@ Brain Gcd - надо вычислить общий делитель у двух 
 Brain Progression - надо найти недостающий элемент прогрессии. Для запуска выполните brain-progression
 
 Brain Prime - надо ответить является-ли число простым. Для запуска выполните brain-prime.
-
-Для запуска выполните brain-prime.
-
-Brain Even
-[![asciicast](https://asciinema.org/a/451418.svg)](https://asciinema.org/a/451418)
-
-Brain Calc
-[![asciicast](https://asciinema.org/a/451443.svg)](https://asciinema.org/a/451443)
-
-Brain Gcd
-[![asciicast](https://asciinema.org/a/451544.svg)](https://asciinema.org/a/451544)
-
-Brain Progression
-[![asciicast](https://asciinema.org/a/451644.svg)](https://asciinema.org/a/451644)
-
-Brain Prime
