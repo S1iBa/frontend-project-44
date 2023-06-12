@@ -10,8 +10,8 @@ const getQuestionParams = (getRandomInt) => {
   let mathSigns = ["+", "-", "*"];
   const chooseSign = Math.floor(Math.random() * mathSigns.length);
   let rightAnswer = 0;
-  let firstNumber = getRandomInt(0, 50);
-  let secondNumber = getRandomInt(0, 50);
+  let firstNumber = getRandomInt(1, 50);
+  let secondNumber = getRandomInt(1, 50);
 
   if (mathSigns[chooseSign] == "+") {
     rightAnswer = firstNumber + secondNumber;
