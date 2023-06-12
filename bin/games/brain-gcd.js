@@ -22,10 +22,19 @@ const getQuestionParams = (getRandomInt) => {
   return [`Question: ${firstNumber} ${secondNumber}`, rightAnswer];
 };
 
+const answerIsNumber = (value) => {
+  if (value === "0") {
+    return true;
+  } else if (value === 0) {
+    return true;
+  } else {
+    return !!Number(value);
+  }
+};
+
 const verify = (readUserInput, rightAnswer) => {
   const wrongAnswer = `'${readUserInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
-  let typeUserInput = typeof readUserInput;
-  if (typeUserInput == "number") {
+  if (answerIsNumber(readUserInput)) {
     if (readUserInput == rightAnswer) {
       return [true, "Correct!"];
     } else {
