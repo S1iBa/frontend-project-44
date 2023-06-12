@@ -23,7 +23,7 @@ const getQuestionParams = (getRandomInt) => {
 
   console.log("What is the result of the expression? ");
   return [
-    `Question: ${firstNumber}${mathSigns[chooseSign]}${secondNumber}`,
+    `Question: ${firstNumber} ${mathSigns[chooseSign]} ${secondNumber}`,
     rightAnswer,
   ];
 };
