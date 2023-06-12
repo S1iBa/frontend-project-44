@@ -25,13 +25,22 @@ const getQuestionParams = () => {
   let rightAnswer = newArray[rand];
   newArray[rand] = newElem;
   console.log("What number is missing in the progression?");
-  return [`Question: ${newArray}`, rightAnswer];
+  return [`Question: ${newArray.join(" ")}`, rightAnswer];
+};
+
+const answerIsNumber = (value) => {
+  if (value === "0") {
+    return true;
+  } else if (value === 0) {
+    return true;
+  } else {
+    return !!Number(value);
+  }
 };
 
 const verify = (readUserInput, rightAnswer) => {
   const wrongAnswer = `'${readUserInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
-  let typeUserInput = typeof readUserInput;
-  if (typeUserInput == "number") {
+  if (answerIsNumber(readUserInput)) {
     if (readUserInput == rightAnswer) {
       return [true, "Correct!"];
     }
