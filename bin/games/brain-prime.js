@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 import _ from 'lodash';
 import { startGame } from '../../src/index.js';
 
-const ariphMean = (...numbers) => {
+const ariphMean = (numbers) => {
   if (numbers.length === 0) {
     return null;
   }
