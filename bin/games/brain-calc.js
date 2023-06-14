@@ -39,7 +39,7 @@ const answerIsNumber = (value) => {
 const verify = (userInput, rightAnswer) => {
   const wrongAnswer = `'${userInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
   if (answerIsNumber(userInput)) {
-    if (userInput === rightAnswer) {
+    if (+userInput === +rightAnswer) {
       return [true, "Correct!"];
     }
     return [false, wrongAnswer];
