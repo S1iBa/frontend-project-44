@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from "readline-sync";
 import { startGame } from "../../src/index.js";
-import { getRandomInt } from "../../src/index.js";
-import { promptUserName } from "../../src/index.js";
 
 const nod = (firstNumber, secondNumber) => {
   if (secondNumber > firstNumber) return nod(secondNumber, firstNumber);
@@ -10,14 +8,12 @@ const nod = (firstNumber, secondNumber) => {
   return nod(secondNumber, firstNumber % secondNumber);
 };
 
-const readUserInput = () => {
-  return readlineSync.question("Your answer: ");
-};
+const readUserInput = () => readlineSync.question("Your answer: ");
 
 const getQuestionParams = (getRandomInt) => {
-  let firstNumber = getRandomInt(1, 50);
-  let secondNumber = getRandomInt(1, 50);
-  let rightAnswer = nod(firstNumber, secondNumber);
+  const firstNumber = getRandomInt(1, 50);
+  const secondNumber = getRandomInt(1, 50);
+  const rightAnswer = nod(firstNumber, secondNumber);
   console.log("Find the greatest common divisor of given numbers.");
   return [`Question: ${firstNumber} ${secondNumber}`, rightAnswer];
 };
@@ -25,24 +21,22 @@ const getQuestionParams = (getRandomInt) => {
 const answerIsNumber = (value) => {
   if (value === "0") {
     return true;
-  } else if (value === 0) {
-    return true;
-  } else {
-    return !!Number(value);
   }
+  if (value === 0) {
+    return true;
+  }
+  return !!Number(value);
 };
 
-const verify = (readUserInput, rightAnswer) => {
-  const wrongAnswer = `'${readUserInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+const verify = (userInput, rightAnswer) => {
+  const wrongAnswer = `'${userInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
   if (answerIsNumber(readUserInput)) {
-    if (readUserInput == rightAnswer) {
+    if (userInput === rightAnswer) {
       return [true, "Correct!"];
-    } else {
-      return [false, wrongAnswer];
     }
-  } else {
-    return [false, ""];
+    return [false, wrongAnswer];
   }
+  return [false, ""];
 };
 
 startGame(getQuestionParams, readUserInput, verify);

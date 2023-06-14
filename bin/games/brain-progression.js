@@ -1,28 +1,24 @@
 #!/usr/bin/env node
 import readlineSync from "readline-sync";
-import { startGame } from "../../src/index.js";
-import { getRandomInt } from "../../src/index.js";
-import { promptUserName } from "../../src/index.js";
+import { startGame, getRandomInt } from "../../src/index.js";
 
 const arithmeticProgress = (n, max) => {
   const random = getRandomInt(2, 6);
   const newArray = Array.from(
     { length: Math.ceil(max / n) },
-    (_, i) => (i + 1) * random
+    (_, i) => (i + 1) * random,
   );
 
   return newArray;
 };
 
-const readUserInput = () => {
-  return readlineSync.question("Your answer: ");
-};
+const readUserInput = () => readlineSync.question("Your answer: ");
 
 const getQuestionParams = () => {
-  let newArray = arithmeticProgress(1, 10);
-  let rand = getRandomInt(0, newArray.length);
+  const newArray = arithmeticProgress(1, 10);
+  const rand = getRandomInt(0, newArray.length);
   const newElem = "..";
-  let rightAnswer = newArray[rand];
+  const rightAnswer = newArray[rand];
   newArray[rand] = newElem;
   console.log("What number is missing in the progression?");
   return [`Question: ${newArray.join(" ")}`, rightAnswer];
@@ -31,25 +27,24 @@ const getQuestionParams = () => {
 const answerIsNumber = (value) => {
   if (value === "0") {
     return true;
-  } else if (value === 0) {
-    return true;
-  } else {
-    return !!Number(value);
   }
+  if (value === 0) {
+    return true;
+  }
+  return !!Number(value);
 };
 
-const verify = (readUserInput, rightAnswer) => {
-  const wrongAnswer = `'${readUserInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
-  if (answerIsNumber(readUserInput)) {
-    if (readUserInput == rightAnswer) {
+const verify = (userInput, rightAnswer) => {
+  const wrongAnswer = `'${userInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+  if (answerIsNumber(userInput)) {
+    if (+userInput === +rightAnswer) {
       return [true, "Correct!"];
     }
-    if (typeof readUserInput != rightAnswer) {
+    if (+userInput !== +rightAnswer) {
       return [false, wrongAnswer];
     }
-  } else {
-    return [false, ""];
   }
+  return [false, ""];
 };
 
 startGame(getQuestionParams, readUserInput, verify);

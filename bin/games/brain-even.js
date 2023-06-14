@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 import readlineSync from "readline-sync";
 import { startGame } from "../../src/index.js";
-import { getRandomInt } from "../../src/index.js";
-import { promptUserName } from "../../src/index.js";
 
 const numberIsEven = (firstNumber) => {
   const x = firstNumber;
-  if (x % 2 == 0) {
+  if (x % 2 === 0) {
     return true;
   }
   return false;
@@ -18,7 +16,7 @@ const readUserInput = () => {
 };
 
 const getQuestionParams = (getRandomInt) => {
-  let firstNumber = getRandomInt(1, 50);
+  const firstNumber = getRandomInt(1, 50);
   let rightAnswer = "";
   if (numberIsEven(firstNumber)) {
     rightAnswer = "yes";
@@ -30,18 +28,17 @@ const getQuestionParams = (getRandomInt) => {
   return [`Question: ${firstNumber}`, rightAnswer];
 };
 
-const verify = (readUserInput, rightAnswer) => {
-  if (readUserInput == rightAnswer) {
+const verify = (userInput, rightAnswer) => {
+  if (userInput === rightAnswer) {
     return [true, "Correct!"];
-  } else {
-    if (readUserInput == "yes" && rightAnswer == "no") {
-      return [false, "'yes' is wrong answer ;(. Correct answer was 'no'."];
-    } else if (readUserInput == "no" && rightAnswer == "yes") {
-      return [false, "'no' is wrong answer ;(. Correct answer was 'yes'.!"];
-    } else {
-      return [false, ""];
-    }
   }
+  if (userInput === "yes" && rightAnswer === "no") {
+    return [false, "'yes' is wrong answer ;(. Correct answer was 'no'."];
+  }
+  if (userInput === "no" && rightAnswer === "yes") {
+    return [false, "'no' is wrong answer ;(. Correct answer was 'yes'.!"];
+  }
+  return [false, ""];
 };
 
 startGame(getQuestionParams, readUserInput, verify);

@@ -2,22 +2,20 @@
 import readlineSync from "readline-sync";
 import { startGame } from "../../src/index.js";
 
-const readUserInput = () => {
-  return readlineSync.question("Your answer: ");
-};
+const readUserInput = () => readlineSync.question("Your answer: ");
 
 const getQuestionParams = (getRandomInt) => {
-  let mathSigns = ["+", "-", "*"];
+  const mathSigns = ["+", "-", "*"];
   const chooseSign = Math.floor(Math.random() * mathSigns.length);
   let rightAnswer = 0;
-  let firstNumber = getRandomInt(1, 50);
-  let secondNumber = getRandomInt(1, 50);
+  const firstNumber = getRandomInt(1, 50);
+  const secondNumber = getRandomInt(1, 50);
 
-  if (mathSigns[chooseSign] == "+") {
+  if (mathSigns[chooseSign] === "+") {
     rightAnswer = firstNumber + secondNumber;
-  } else if (mathSigns[chooseSign] == "-") {
+  } else if (mathSigns[chooseSign] === "-") {
     rightAnswer = firstNumber - secondNumber;
-  } else if (mathSigns[chooseSign] == "*") {
+  } else if (mathSigns[chooseSign] === "*") {
     rightAnswer = firstNumber * secondNumber;
   }
 
@@ -31,24 +29,22 @@ const getQuestionParams = (getRandomInt) => {
 const answerIsNumber = (value) => {
   if (value === "0") {
     return true;
-  } else if (value === 0) {
-    return true;
-  } else {
-    return !!Number(value);
   }
+  if (value === 0) {
+    return true;
+  }
+  return !!Number(value);
 };
 
-const verify = (readUserInput, rightAnswer) => {
-  const wrongAnswer = `'${readUserInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
-  if (answerIsNumber(readUserInput)) {
-    if (readUserInput == rightAnswer) {
+const verify = (userInput, rightAnswer) => {
+  const wrongAnswer = `'${userInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+  if (answerIsNumber(userInput)) {
+    if (userInput === rightAnswer) {
       return [true, "Correct!"];
-    } else {
-      return [false, wrongAnswer];
     }
-  } else {
-    return [false, ""];
+    return [false, wrongAnswer];
   }
+  return [false, ""];
 };
 
 startGame(getQuestionParams, readUserInput, verify);
