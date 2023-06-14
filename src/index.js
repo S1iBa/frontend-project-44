@@ -1,4 +1,4 @@
-import readlineSync from "readline-sync";
+import readlineSync from 'readline-sync';
 
 export const getRandomInt = (min, max) => {
   const min1 = Math.ceil(min);
@@ -7,12 +7,12 @@ export const getRandomInt = (min, max) => {
 };
 
 export const promptUserName = () => {
-  const name = readlineSync.question("Your name: ");
+  const name = readlineSync.question('Your name: ');
   return name;
 };
 
 export const startGame = (getQuestionParams, readUserInput, verify) => {
-  console.log("Welcome to the Brain Games!");
+  console.log('Welcome to the Brain Games!');
   const name = promptUserName();
   console.log(`Hello, ${name}!`);
 
@@ -23,7 +23,7 @@ export const startGame = (getQuestionParams, readUserInput, verify) => {
     const userAnswer = readUserInput();
     const endOfGame = `Let's try again, ${name}!`;
     const [isCorrect, message] = verify(userAnswer, rightAnswer);
-    if (message !== "") {
+    if (message !== '') {
       console.log(message);
     }
     if (!isCorrect) {

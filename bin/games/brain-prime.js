@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import readlineSync from "readline-sync";
-import _ from "lodash";
-import { startGame } from "../../src/index.js";
+import readlineSync from 'readline-sync';
+import _ from 'lodash';
+import { startGame } from '../../src/index.js';
 
 const ariphMean = (...numbers) => {
   if (numbers.length === 0) {
@@ -14,8 +14,8 @@ const ariphMean = (...numbers) => {
 
 ariphMean([10, 15]);
 const readUserInput = () => {
-  const choosing = ["yes", "no"];
-  return readlineSync.question("Your answer: ", choosing);
+  const choosing = ['yes', 'no'];
+  return readlineSync.question('Your answer: ', choosing);
 };
 
 const isPrime = (num) => {
@@ -29,11 +29,11 @@ const isPrime = (num) => {
 
 const getQuestionParams = (getRandomInt) => {
   const firstNumber = getRandomInt(1, 50);
-  let rightAnswer = "";
+  let rightAnswer = '';
   if (isPrime(firstNumber)) {
-    rightAnswer = "yes";
+    rightAnswer = 'yes';
   } else if (!isPrime(firstNumber)) {
-    rightAnswer = "no";
+    rightAnswer = 'no';
   }
 
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
@@ -42,15 +42,15 @@ const getQuestionParams = (getRandomInt) => {
 
 const verify = (userInput, rightAnswer) => {
   if (userInput === rightAnswer) {
-    return [true, "Correct!"];
+    return [true, 'Correct!'];
   }
-  if (userInput === "yes" && rightAnswer === "no") {
-    return [false, "'yes' is wrong answer ;(. Correct answer was 'no'."];
+  if (userInput === 'yes' && rightAnswer === 'no') {
+    return [false, '"yes" is wrong answer ;(. Correct answer was "no".'];
   }
-  if (userInput === "no" && rightAnswer === "yes") {
-    return [false, "'no' is wrong answer ;(. Correct answer was 'yes'.!"];
+  if (userInput === 'no' && rightAnswer === 'yes') {
+    return [false, '"no" is wrong answer ;(. Correct answer was "yes".!'];
   }
-  return [false, ""];
+  return [false, ''];
 };
 
 startGame(getQuestionParams, readUserInput, verify);

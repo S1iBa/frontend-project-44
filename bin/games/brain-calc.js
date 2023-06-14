@@ -1,25 +1,25 @@
 #!/usr/bin/env node
-import readlineSync from "readline-sync";
-import { startGame } from "../../src/index.js";
+import readlineSync from 'readline-sync';
+import { startGame } from '../../src/index.js';
 
-const readUserInput = () => readlineSync.question("Your answer: ");
+const readUserInput = () => readlineSync.question('Your answer: ');
 
 const getQuestionParams = (getRandomInt) => {
-  const mathSigns = ["+", "-", "*"];
+  const mathSigns = ['+', '-', '*'];
   const chooseSign = Math.floor(Math.random() * mathSigns.length);
   let rightAnswer = 0;
   const firstNumber = getRandomInt(1, 50);
   const secondNumber = getRandomInt(1, 50);
 
-  if (mathSigns[chooseSign] === "+") {
+  if (mathSigns[chooseSign] === '+') {
     rightAnswer = firstNumber + secondNumber;
-  } else if (mathSigns[chooseSign] === "-") {
+  } else if (mathSigns[chooseSign] === '-') {
     rightAnswer = firstNumber - secondNumber;
-  } else if (mathSigns[chooseSign] === "*") {
+  } else if (mathSigns[chooseSign] === '*') {
     rightAnswer = firstNumber * secondNumber;
   }
 
-  console.log("What is the result of the expression? ");
+  console.log('What is the result of the expression? ');
   return [
     `Question: ${firstNumber} ${mathSigns[chooseSign]} ${secondNumber}`,
     rightAnswer,
@@ -27,7 +27,7 @@ const getQuestionParams = (getRandomInt) => {
 };
 
 const answerIsNumber = (value) => {
-  if (value === "0") {
+  if (value === '0') {
     return true;
   }
   if (value === 0) {
@@ -40,11 +40,11 @@ const verify = (userInput, rightAnswer) => {
   const wrongAnswer = `'${userInput}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
   if (answerIsNumber(userInput)) {
     if (+userInput === +rightAnswer) {
-      return [true, "Correct!"];
+      return [true, 'Correct!'];
     }
     return [false, wrongAnswer];
   }
-  return [false, ""];
+  return [false, ''];
 };
 
 startGame(getQuestionParams, readUserInput, verify);
