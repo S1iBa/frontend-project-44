@@ -1,38 +1,34 @@
 import readlineSync from 'readline-sync';
-
-export const getRandomInt = (min, max) => {
-  const min1 = Math.ceil(min);
-  const max1 = Math.floor(max);
-  return Math.floor(Math.random() * (max1 - min1)) + min1;
-};
+import getRandomInt from './utils';
 
 export const promptUserName = () => {
-  const name = readlineSync.question('Your name: ');
+  const name = readlineSync.question('May I have your name? ');
   return name;
 };
 
-export const startGame = (getQuestionParams, readUserInput, verify) => {
+const lastRound = 3;
+
+export const startGame = (gameIntro, gameGeneration, readUserInput) => {
   console.log('Welcome to the Brain Games!');
+  console.log(gameIntro);
+
   const name = promptUserName();
   console.log(`Hello, ${name}!`);
 
-  let quest = 0;
-  while (quest < 3) {
-    const [questionText, rightAnswer] = getQuestionParams(getRandomInt);
+  for(let quest = 0; quest < lastRound; quest++) {
+    const [questionText, rightAnswer] = gameGeneration(getRandomInt);
     console.log(questionText);
-    const userAnswer = readUserInput();
+    const userAnswer = readlineSync.question("Your answer: ").toLowerCase();;
+    const isCorrect = userAnswer === rightAnswer;
     const endOfGame = `Let's try again, ${name}!`;
-    const [isCorrect, message] = verify(userAnswer, rightAnswer);
-    if (message !== '') {
-      console.log(message);
-    }
-    if (!isCorrect) {
+
+ if (isCorrect) {
+      console.log('Correct!');
+    } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`);
       console.log(endOfGame);
-      break;
-    }
-    quest += 1;
-  }
-  if (quest === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+      return;
+    };
+  };
+  console.log(`Congratulations, ${userName}!`);
 };
