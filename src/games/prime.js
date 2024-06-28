@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import readlineSync from "readline-sync";
 import _ from "lodash";
 import { startGame } from "../index.js";
 import getRandomInt from "../utils.js";
@@ -37,4 +36,4 @@ const gameGeneration = () => {
   return [`Question: ${firstNumber}`, String(rightAnswer)];
 };
 
-startGame(gameIntro, gameGeneration);
+export default () => startGame(gameIntro, gameGeneration);

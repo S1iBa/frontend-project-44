@@ -24,4 +24,4 @@ const gameGeneration = (getRandomInt) => {
   ];
 };
 
-startGame(gameIntro, gameGeneration);
+export default () => startGame(gameIntro, gameGeneration);

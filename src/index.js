@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import getRandomInt from './utils';
+import getRandomInt from './utils.js';
 
 export const promptUserName = () => {
   const name = readlineSync.question('May I have your name? ');

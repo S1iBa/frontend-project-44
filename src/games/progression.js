@@ -22,4 +22,4 @@ const gameGeneration = () => {
   return [`Question: ${newArray.join(" ")}`, String(rightAnswer)];
 };
 
-startGame(gameIntro, gameGeneration);
+export default () => startGame(gameIntro, gameGeneration);

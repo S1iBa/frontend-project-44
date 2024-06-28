@@ -24,4 +24,4 @@ const gameGeneration = () => {
   return [`Question: ${firstNumber}`, rightAnswer];
 };
 
-startGame(gameIntro, gameGeneration);
+export default () => startGame(gameIntro, gameGeneration);
