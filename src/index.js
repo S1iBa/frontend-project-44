@@ -30,5 +30,5 @@ export const startGame = (gameIntro, gameGeneration, readUserInput) => {
       return;
     };
   };
-  console.log(`Congratulations, ${userName}!`);
+  console.log(`Congratulations, ${name}!`);
 };
