@@ -11,7 +11,7 @@ const gameGeneration = () => {
   const firstNumber = getRandomInt(1, 50);
   const secondNumber = getRandomInt(1, 50);
 
-  switch(mathSigns[choosenSign]){
+  switch (mathSigns[choosenSign]) {
     case '+':
       rightAnswer = firstNumber + secondNumber;
       break;
@@ -21,8 +21,8 @@ const gameGeneration = () => {
     case '*':
       rightAnswer = firstNumber * secondNumber;
       break;
-      default:
-        return null;
+    default:
+      return null;
   }
 
   return [

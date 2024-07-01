@@ -20,7 +20,7 @@ export default (gameIntro, gameGeneration) => {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`);
       console.log(endOfGame);
       return;
-    } 
+    }
     console.log('Correct!');
   }
   console.log(`Congratulations, ${name}!`);
