@@ -5,10 +5,12 @@ import getRandomInt from "../utils.js";
 const gameIntro = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
-  for (let i = 2; i < num; i += 1) {
-    return num % i === 0;
+  if (num <= 1) {
+    return false;
   }
-  return num > 1;
+  for (let i = 2; i <= Math.sqrt(num); i += 1) {
+    return num % i === 0 ? false : true;
+  }
 };
 
 const gameGeneration = () => {
