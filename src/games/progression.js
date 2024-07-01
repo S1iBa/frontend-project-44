@@ -5,22 +5,22 @@ import getRandomInt from "../utils.js";
 const gameIntro = 'What number is missing in the progression?';
 
 const arithmeticProgress = (n, max) => {
-  const random = getRandomInt(2, 6);
-  const newArray = Array.from(
+  const step = getRandomInt(2, 6);
+  const listOfNumbers = Array.from(
     { length: Math.ceil(max / n) },
-    (_, i) => (i + 1) * random,
+    (_, i) => (i + 1) * step,
   );
 
-  return newArray;
+  return listOfNumbers;
 };
 
 const gameGeneration = () => {
-  const newArray = arithmeticProgress(1, 10);
-  const rand = getRandomInt(0, newArray.length);
-  const newElem = "..";
-  const rightAnswer = newArray[rand];
-  newArray[rand] = newElem;
-  return [`Question: ${newArray.join(" ")}`, String(rightAnswer)];
+  const newListOfNumbers = arithmeticProgress(1, 10);
+  const unknowElemPosition = getRandomInt(0, newListOfNumbers.length);
+  const unknownElem = "..";
+  const rightAnswer = newListOfNumbers[unknowElemPosition];
+  newListOfNumbers[unknowElemPosition] = unknownElem;
+  return [`Question: ${newListOfNumbers.join(" ")}`, String(rightAnswer)];
 };
 
 export default () => startGame(gameIntro, gameGeneration);

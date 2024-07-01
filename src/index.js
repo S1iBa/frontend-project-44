@@ -1,19 +1,13 @@
 import readlineSync from 'readline-sync';
 import getRandomInt from './utils.js';
 
-export const promptUserName = () => {
-  const name = readlineSync.question('May I have your name? ');
-  return name;
-};
-
 const lastRound = 3;
 
-export const startGame = (gameIntro, gameGeneration, readUserInput) => {
+export const startGame = (gameIntro, gameGeneration) => {
   console.log('Welcome to the Brain Games!');
-  console.log(gameIntro);
-
-  const name = promptUserName();
+  const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
+  console.log(gameIntro);
 
   for(let quest = 0; quest < lastRound; quest++) {
     const [questionText, rightAnswer] = gameGeneration(getRandomInt);
@@ -22,13 +16,12 @@ export const startGame = (gameIntro, gameGeneration, readUserInput) => {
     const isCorrect = userAnswer === rightAnswer;
     const endOfGame = `Let's try again, ${name}!`;
 
- if (isCorrect) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`);
-      console.log(endOfGame);
-      return;
-    };
+ if (!isCorrect) {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`);
+    console.log(endOfGame);
+    return;
+  } 
+    console.log('Correct!');
   };
   console.log(`Congratulations, ${name}!`);
 };
