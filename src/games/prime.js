@@ -9,8 +9,10 @@ const isPrime = (num) => {
     return false;
   }
   for (let i = 2; i <= Math.sqrt(num); i += 1) {
-    return num % i === 0 ? false : true;
+    if( num % i === 0 )return false;
   }
+
+  return true;
 };
 
 const gameGeneration = () => {
