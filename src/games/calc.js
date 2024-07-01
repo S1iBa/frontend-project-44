@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { startGame } from '../index.js';
+import startGame from '../index.js';
 import getRandomInt from '../utils.js';
 
 const gameIntro = 'What is the result of the expression?';
