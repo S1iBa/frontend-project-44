@@ -8,12 +8,12 @@ const isPrime = (num) => {
   for (let i = 2; i < num; i += 1) {
     return num % i === 0;
   }
-  return num;
+  return num > 1;
 };
 
 const gameGeneration = () => {
   const firstNumber = getRandomInt(1, 50);
-  let rightAnswer = isPrime(firstNumber) ? "no" : "yes";
+  let rightAnswer = isPrime(firstNumber) ? "yes" : "no";
   return [`Question: ${firstNumber}`, String(rightAnswer)];
 };
 
