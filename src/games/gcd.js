@@ -5,10 +5,9 @@ import getRandomInt from '../utils.js';
 const gameIntro = 'Find the greatest common divisor of given numbers.';
 
 const nod = (num1, num2) => {
-  if (!num2) {
-    return num1;
-  }
-  return performGcd(num2, num1 % num2);
+  if (num2 > num1) return nod(num2, num1);
+  if (!num2) return num1;
+  return nod(num2, num1 % num2);
 };
 
 const gameGeneration = () => {
