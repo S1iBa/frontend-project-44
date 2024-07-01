@@ -13,7 +13,7 @@ const isPrime = (num) => {
 
 const gameGeneration = () => {
   const firstNumber = getRandomInt(1, 50);
-  let rightAnswer = isPrime(firstNumber) ? "yes" : "no";
+  let rightAnswer = isPrime(firstNumber) ? "no" : "yes";
   return [`Question: ${firstNumber}`, String(rightAnswer)];
 };
 
