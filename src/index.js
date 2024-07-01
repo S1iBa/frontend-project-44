@@ -3,7 +3,7 @@ import getRandomInt from './utils.js';
 
 const lastRound = 3;
 
-export default startGame = (gameIntro, gameGeneration) => {
+export default (gameIntro, gameGeneration) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
