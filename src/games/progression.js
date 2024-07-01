@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { startGame } from "../index.js";
-import getRandomInt from "../utils.js";
+import { startGame } from '../index.js';
+import getRandomInt from '../utils.js';
 
 const gameIntro = 'What number is missing in the progression?';
 
@@ -17,10 +17,10 @@ const arithmeticProgress = (n, max) => {
 const gameGeneration = () => {
   const newListOfNumbers = arithmeticProgress(1, 10);
   const unknowElemPosition = getRandomInt(0, newListOfNumbers.length);
-  const unknownElem = "..";
+  const unknownElem = '..';
   const rightAnswer = newListOfNumbers[unknowElemPosition];
   newListOfNumbers[unknowElemPosition] = unknownElem;
-  return [`Question: ${newListOfNumbers.join(" ")}`, String(rightAnswer)];
+  return [`Question: ${newListOfNumbers.join(' ')}`, String(rightAnswer)];
 };
 
 export default () => startGame(gameIntro, gameGeneration);

@@ -1,16 +1,12 @@
 #!/usr/bin/env node
-import { startGame } from "../index.js";
-import getRandomInt from "../utils.js";
+import { startGame } from '../index.js';
+import getRandomInt from '../utils.js';
 
 const gameIntro = 'Find the greatest common divisor of given numbers.';
 
-const nod = (firstNumber, secondNumber) => {
-  return secondNumber > firstNumber
-  ? nod(secondNumber, firstNumber)
-  : !secondNumber
-  ? firstNumber
-  : nod(secondNumber, firstNumber % secondNumber);
-};
+const nod = (firstNumber, secondNumber) => !secondNumber 
+  ? firstNumber 
+    : nod(secondNumber, firstNumber % secondNumber);
 
 const gameGeneration = () => {
   const firstNumber = getRandomInt(1, 50);
@@ -20,3 +16,4 @@ const gameGeneration = () => {
 };
 
 export default () => startGame(gameIntro, gameGeneration);
+
