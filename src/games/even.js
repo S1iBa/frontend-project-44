@@ -4,7 +4,7 @@ import getRandomInt from '../utils.js';
 
 const gameIntro = 'Answer "yes" if the number is even, otherwise answer "no"';
 
-const numberIsEven = (firstNumber) => firstNumber % 2 === 0;
+const numberIsEven = (num) => num % 2 === 0;
 
 const gameGeneration = () => {
   const firstNumber = getRandomInt(1, 50);
